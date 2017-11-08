@@ -7,18 +7,21 @@ Vue.use(Vuex)
 
 
 export default new Vuex.Store({
-  state: {
-    breadListState:[
-      {name:'首页',path:'/'}
-    ]
-  },
-  mutations: {
-    breadListStateAdd(state,obj){
-      state.breadListState.push(obj);
-    },
-    breadListStateRemove(state,num){
-      state.breadListState=state.breadListState.slice(0,num);
-    }
-  }
-
+	state: {
+		breadListState: [{
+			name: '首页',
+			path: '/'
+		}]
+	},
+	mutations: {
+		breadListMutations(getters, list) {
+			getters.breadListState = list;
+			sessionStorage.setItem('breadListStorage', list);
+		}
+	},
+	getters: {
+		breadListState() {
+			return JSON.parse(sessionStorage.getItem('breadListStorage')) || [];
+		}
+	}
 })
