@@ -8,7 +8,7 @@
 <script>
     export default{
         created() {
-          this.getBreadcrumb(true);//刷新的参数为true
+          this.getBreadcrumb();
         },
         data() {
             return {
@@ -16,14 +16,15 @@
             }
         },
         methods: {
-            getBreadcrumb(isreload) {
+            getBreadcrumb() {
                 var breadNumber= typeof(this.$route.meta.breadNumber)!="undefined"?this.$route.meta.breadNumber:1;//默认为1
                 var newBread={name:this.$route.name,path:this.$route.fullPath};//当前页面的
-                var breadList=this.$store.getters.breadListState;//获取breadList数组
+                // debugger;
+                var breadList=this.$store.state.breadListState;//获取breadList数组
                 breadList.splice(breadNumber,breadList.length-breadNumber,newBread);
-                var breadList=JSON.stringify(breadList);
+            
                 this.$store.commit('breadListMutations',breadList);
-                this.breadList=this.$store.getters.breadListState;
+                this.breadList=breadList;
             }
         },
         watch: {

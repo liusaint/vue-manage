@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
 import Layout from '@/components/layout'
 import index from '@/components/index'
 Vue.use(Router)
@@ -41,7 +41,15 @@ export default new Router({
 	routes: [{
 			path: '/',
 			name: '首页',
-			component: index,
+			component: Layout,
+			children: [{
+				path: '/',
+				component: index,
+				name: '首页',
+				meta:{
+					breadNumber:0
+				}
+			}]
 		},
 
 		{
@@ -60,8 +68,7 @@ export default new Router({
 				meta: {
 					breadNumber: 2
 				}
-			},
-			{
+			}, {
 				path: 'a3',
 				component: a3,
 				name: 'a3',
