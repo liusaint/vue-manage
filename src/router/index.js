@@ -57,19 +57,19 @@ export default new Router({
 			name: 'a',
 			component: Layout,
 			children: [{
-				path: 'a1',
+				path: '/a1',
 				component: a1,
 				name: 'a1',
 			}, {
 
-				path: 'a2',
+				path: '/a2',
 				component: a2,
 				name: 'a2',
 				meta: {
 					breadNumber: 2
 				}
 			}, {
-				path: 'a3',
+				path: '/a3',
 				component: a3,
 				name: 'a3',
 				meta: {
@@ -81,11 +81,11 @@ export default new Router({
 			name: 'b',
 			component: Layout,
 			children: [{
-				path: 'b1',
+				path: '/b1',
 				component: b1,
 				name: 'b1',
 			}, {
-				path: 'b2',
+				path: '/b2',
 				component: b2,
 				name: 'b2',
 				meta: {
