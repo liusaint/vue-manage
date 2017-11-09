@@ -10,7 +10,8 @@ export default new Vuex.Store({
 	state: {
 		breadListState: [{
 			name: '首页',
-			path: '/'
+			path: '/',
+			breadNumber:0
 		}]
 	},
 	mutations: {
