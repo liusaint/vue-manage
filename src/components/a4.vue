@@ -1,6 +1,6 @@
 <template>
 
-	<div class="">这里是a2
+	<div class="">这里是a4
 		<br>
 		<router-link to="/a1" tag="a">点击进入a1</router-link>
 <router-link to="/a2" tag="a">点击进入a2</router-link>
