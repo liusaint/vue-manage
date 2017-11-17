@@ -1,6 +1,14 @@
 # vue-manage
 
-> A Vue.js project
+> 一个使用vue管理系统项目。  目前项目处理初始化阶段。
+
+## 已完成功能。 
+* 动态加载组件。
+* 路由。
+* 基本的layout布局组件。（未写css)
+* vue动态面包屑功能。
+
+
 
 ## Build Setup
 
@@ -17,5 +25,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
