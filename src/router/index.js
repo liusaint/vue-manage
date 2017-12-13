@@ -13,36 +13,18 @@ const a1 = (resolve) => {
 	})
 }
 
-const a2 = (resolve) => {
-	import ('@/components/a2').then((module) => {
-		resolve(module)
-	})
-}
-
-const a3 = (resolve) => {
-	import ('@/components/a3').then((module) => {
-		resolve(module)
-	})
-}
-
-const a4 = (resolve) => {
-	import ('@/components/a4').then((module) => {
-		resolve(module)
-	})
-}
+const a2 = () => import ('@/components/a2')
 
 
-const b1 = (resolve) => {
-	import ('@/components/b1').then((module) => {
-		resolve(module)
-	})
-}
+const a3 = () =>import ('@/components/a3')
 
-const b2 = (resolve) => {
-	import ('@/components/b2').then((module) => {
-		resolve(module)
-	})
-}
+const a4 = () => import ('@/components/a4')
+
+
+const b1 = () => import ('@/components/b1')
+
+const b2 = () => import ('@/components/b2')
+
 
 export default new Router({
 	routes: [{
