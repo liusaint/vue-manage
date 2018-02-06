@@ -1,19 +1,19 @@
 <template>
 	<div>
-		<Header/>
+		<SelfHeader/>
 		<Left/>
 		<router-view></router-view>
-		<Footer/>
+		<SelfFooter/>
 	</div>
 </template>
 <script>
-import Header from './header.vue';
-import Footer from './footer.vue';
+import SelfHeader from './header.vue';
+import SelfFooter from './footer.vue';
 import Left from "./left.vue";
 export default {
 	name: 'layout',
 	components:{
-		Header,Footer,Left
+		SelfHeader,SelfFooter,Left
 	}
 }
 </script>
