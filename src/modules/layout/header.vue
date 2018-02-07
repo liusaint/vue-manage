@@ -20,7 +20,7 @@
 	</header>
 </template>
 <script>
-
+console.log('header.vue');
 export default {
 	name: 's-header',
 }

@@ -4,7 +4,7 @@
 	</footer>
 </template>
 <script>
-
+console.log('footer.vue');
 export default {
 	name: 'bodyFooter',
 }

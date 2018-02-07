@@ -5,6 +5,7 @@
 </template>
 
 <script>
+console.log('app');
 export default {
   name: 'App'
 }

@@ -4,20 +4,24 @@
 		<div class="page-container">
 			<Left/>
 			<div class="page-content">
-				<router-view></router-view>				
+				<hisTab/>
+				<router-view/>			
 			</div>			
 		</div>
 		<SelfFooter/>		
 	</div>
 </template>
 <script>
-import SelfHeader from './header.vue';
+console.log('layout');
 import SelfFooter from './footer.vue';
+import SelfHeader from './header.vue';
+
 import Left from "./left.vue";
+import hisTab from "./hisTab.vue";
 export default {
 	name: 'layout',
 	components:{
-		SelfHeader,SelfFooter,Left
+		SelfHeader,SelfFooter,Left,hisTab
 	}
 }
 </script >
