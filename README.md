@@ -24,3 +24,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ### vue-cli中代码执行的顺序是什么。　为何到histab中router还没有执行。
 http://blog.csdn.net/blueblueskyhua/article/details/78024836
 import router from '../../router'为什么拿不到
+### import 和　require。amd和cmd导入模块以及使用webpack时有哪些差异？
