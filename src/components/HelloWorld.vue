@@ -84,6 +84,7 @@
 </template>
 
 <script>
+console.log('HelloWorld.vue')
 export default {
   name: 'HelloWorld',
   data () {
