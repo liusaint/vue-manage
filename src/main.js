@@ -3,6 +3,7 @@ console.log('main');
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import store from './store/index.js'
 import router from './router'
 import ElementUI from 'element-ui'
 import './css/common.less'
@@ -13,11 +14,12 @@ import './assets/font/iconfont.css'
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
-console.log(router);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

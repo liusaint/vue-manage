@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
+		<el-tabs v-model="hisVal" type="card" closable >
 			<el-tab-pane
+			v-for="(item, index) in tabHisObj.editableTabs"
 			:key="item.name"
-			v-for="(item, index) in editableTabs"
 			:label="item.title"
 			:name="item.name"
-			>			
+			>
 		</el-tab-pane>
 	</el-tabs>
 </div>
@@ -18,22 +18,24 @@
 <script>
 console.log('hisTab.vue');
 import Vue from 'vue'
-import router from '../../router'
+import { mapState } from 'vuex'
 
-// router.beforeEach((to, from, next) => {
-//   console.log(1);
-//   next();
-// })
-// router.beforeEach((to, from, next) => {
-//   console.log(2);
-//   next();
-// })
 export default {
 	data() {
 		return {
-			editableTabsValue: '2',
-			editableTabs: [],
-			tabIndex: 2
+
+		}
+
+	},
+	computed: {
+		...mapState(['tabHisObj']),
+		hisVal:{
+			get:function(){
+				return this.tabHisObj.editableTabsValue;
+			},
+			set:function(value){
+				this.$store.commit('changeTabHisVal',value)
+			}
 		}
 	},
 	methods: {
@@ -65,6 +67,7 @@ export default {
 				this.editableTabs = tabs.filter(tab => tab.name !== targetName);
 			}
 		}
-	}
+	},
+
 }
 </script>

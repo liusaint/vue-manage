@@ -44,6 +44,7 @@ html,body{
 } 
 .page-content {
 	margin-left: @menuWidth;
+	padding:10px;
 	padding-bottom: @footerHeight;
 	height: 100%;
 	position: relative;
