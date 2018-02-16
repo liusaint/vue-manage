@@ -12,7 +12,7 @@
 			<i class="iconfont icon-account"></i><span slot="title" class="title">个人中心</span>
 		</template>
 		<el-menu-item index="1" :key="1" >
-			<router-link to="/ucenter/notice">个人信息</router-link>
+			<router-link to="/ucenter/user-info">个人信息</router-link>
 		</el-menu-item>
 		<el-menu-item index="2" :key="2" >
 			<router-link to="/ucenter/message">消息中心</router-link>
