@@ -43,16 +43,19 @@ const router = new Router({
 
 //导航tab栏
 router.beforeEach((to, from, next) => {
+	//对于要添加的作一个过滤 。目前只过滤掉没有name的
+	if (to.name) {
+		const tabObj = {
+				title: to.name,
+				name: to.name,
+				path: to.path
+			}
+			//???vue-router中使用vuex
+		const tabHisObj = router.app.$store.state.tabHisObj;
 
-	const tabObj = {
-		title: to.name,
-		name: to.name,
-		path: to.path
+		router.app.$store.commit('addTabHis', tabObj);
 	}
-	//???vue-router中使用vuex
-	const tabHisObj = router.app.$store.state.tabHisObj;
-	router.app.$store.commit('addTabHis',tabObj);
-	
+
 	next();
 })
 

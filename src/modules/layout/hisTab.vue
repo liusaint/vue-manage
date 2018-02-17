@@ -1,19 +1,15 @@
 <template>
 	<div>
-		<el-tabs v-model="hisVal" type="card" closable >
+		<el-tabs v-model="hisVal" type="card" closable @tab-remove="removeTab">
 			<el-tab-pane
 			v-for="(item, index) in tabHisObj.editableTabs"
 			:key="item.name"
 			:label="item.title"
 			:name="item.name"
-			>
-		</el-tab-pane>
-	</el-tabs>
-</div>
+			></el-tab-pane>
+		</el-tabs>
+	</div>
 </template>
-
-
-
 
 <script>
 console.log('hisTab.vue');
@@ -39,33 +35,26 @@ export default {
 		}
 	},
 	methods: {
-		handleTabsEdit(targetName, action) {
-			if (action === 'add') {
-				let newTabName = ++this.tabIndex + '';
-				this.editableTabs.push({
-					title: 'New Tab',
-					name: newTabName,
-					content: 'New Tab content'
-				});
-				this.editableTabsValue = newTabName;
-			}
-			if (action === 'remove') {
-				let tabs = this.editableTabs;
-				let activeName = this.editableTabsValue;
-				if (activeName === targetName) {
-					tabs.forEach((tab, index) => {
-						if (tab.name === targetName) {
-							let nextTab = tabs[index + 1] || tabs[index - 1];
-							if (nextTab) {
-								activeName = nextTab.name;
-							}
-						}
-					});
-				}
+		//删除标签。1.如果不是激活标签。则直接删除元素。2.是激活标签。则需要激活前面或后面的标签。
+		removeTab(targetName){
+			const tabArr = this.tabHisObj.editableTabs;
+			let activeTabName = this.hisVal;
+			if(targetName == activeTabName){			
 
-				this.editableTabsValue = activeName;
-				this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+				var that = this;
+				tabArr.forEach(function(tab,index){
+					if(tab.name != targetName){
+						return;
+					}
+					var nextTab = tabArr[index-1]||tabArr[index+1];
+					if(nextTab){
+						that.hisVal = nextTab.name;
+					}
+
+				})
 			}
+			this.tabHisObj.editableTabs = tabArr.filter(tab=>tab.name!=targetName);
+
 		}
 	},
 	
