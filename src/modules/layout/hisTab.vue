@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<el-tabs v-model="hisVal" type="card" closable @tab-remove="removeTab">
+		<el-tabs v-model="hisVal" type="card" closable @tab-remove="removeTab" @tab-click="clickTab">
 			<el-tab-pane
 			v-for="(item, index) in tabHisObj.editableTabs"
 			:key="item.name"
@@ -26,11 +26,22 @@ export default {
 	computed: {
 		...mapState(['tabHisObj']),
 		hisVal:{
+			//只要tab的值变化了，这就会重新get一下。
 			get:function(){
+				
+				const tabArr = this.tabHisObj.editableTabs;
+				tabArr.forEach(tab=>{
+					//当tab name不一样。且path与当前path不一样时，需要编程式推入新的路由。
+					if(tab.name == this.tabHisObj.editableTabsValue && this.$route.path != tab.path){
+						this.$router.push(tab.path);
+					}
+				})
 				return this.tabHisObj.editableTabsValue;
+				
 			},
 			set:function(value){
-				this.$store.commit('changeTabHisVal',value)
+				this.$store.commit('changeTabHisVal',value);
+	
 			}
 		}
 	},
@@ -55,6 +66,9 @@ export default {
 			}
 			this.tabHisObj.editableTabs = tabArr.filter(tab=>tab.name!=targetName);
 
+		},
+		clickTab(tab){
+			console.log(tab);
 		}
 	},
 	
